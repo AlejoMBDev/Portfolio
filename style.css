@@ -1,0 +1,511 @@
+/* --- ESTILOS GENERALES Y TEMAS --- */
+/* Se definen dos paletas de colores: una para el modo claro y otra para el modo oscuro. */
+:root {
+    /* Paleta de colores para el Modo Claro */
+    --bg-color: #c9cacc;        /* Color de fondo principal */
+    --container-bg: #f1f1f1cb;    /* Color de fondo de los contenedores */
+    --card-bg: #f1f1f18e;         /* Color de fondo para tarjetas */
+    --text-primary: #4d4d4d;     /* Color de texto principal */
+    --text-secondary: #1a202c;   /* Color de texto secundario o más suave */
+    --color-accent: #d48908;     /* Color de acento */
+    --accent-hover: #b47200;    /* Color de acento para el efecto hover */
+    --border-color: #e2e8f0;    /* Color para bordes sutiles */
+    --shadow-color: rgba(0, 0, 0, 0.1); /* Color de la sombra */
+}
+
+/* Paleta de colores para el Modo Oscuro */
+/* Se activa cuando el body tiene la clase 'dark-mode' */
+body.dark-mode {
+    --bg-color: #1a202c;
+    --container-bg: #2d3748;
+    --card-bg: #4a5568;
+    --text-primary: #f7fafc;
+    --text-secondary: #ccd6e2;
+    --color-accent: #f6ad55;
+    --accent-hover: #dd9b3d;
+    --border-color: #4a5568;
+    --shadow-color: rgba(0, 0, 0, 0.4);
+}
+
+/* --- RESETEO Y ESTILOS GLOBALES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Asegura que el padding y borde no afecten el tamaño total del elemento */
+}
+
+body {
+    font-family: 'Inter', sans-serif; /* Fuente más moderna y legible */
+    background-color: var(--bg-color); /* Usa la variable de color de fondo */
+    color: var(--text-primary);        /* Usa la variable de color de texto principal */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave para el cambio de tema */
+    -webkit-font-smoothing: antialiased; /* Mejora el renderizado de fuentes en WebKit */
+    -moz-osx-font-smoothing: grayscale; /* Mejora el renderizado de fuentes en Firefox */
+}
+
+/* --- CONTROLES FLOTANTES (TEMA E IDIOMA) --- */
+.controls-container {
+    position: fixed; /* Posición fija para que siempre esté visible */
+    top: 20px;
+    right: 20px;
+    z-index: 1000; /* Se asegura de que esté por encima de otros elementos */
+    display: flex;
+    gap: 10px; /* Espacio entre los botones */
+}
+
+.control-button {
+    background-color: var(--container-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%; /* Botones redondos */
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem; /* Tamaño del ícono/texto */
+    box-shadow: 0 4px 8px var(--shadow-color);
+    transition: all 0.3s ease; /* Transición para todos los cambios */
+}
+
+.control-button:hover {
+    transform: translateY(-2px); /* Efecto de elevación al pasar el mouse */
+    box-shadow: 0 6px 12px var(--shadow-color);
+}
+
+#langIcon {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* --- CONTENEDOR PRINCIPAL --- */
+.container {
+    max-width: 1100px; /* Ancho máximo del contenido */
+    margin: 40px auto; /* Centrado horizontalmente con margen superior/inferior */
+    padding: 40px;
+    background-color: var(--container-bg);
+    border-radius: 20px;
+    box-shadow: 0 8px 30px var(--shadow-color);
+    transition: background-color 0.3s ease; /* Transición suave para el fondo */
+}
+
+/* --- CABECERA Y NAVEGACIÓN --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color); /* Línea divisoria sutil */
+}
+
+.profile-pic img {
+    width: 50px;
+    border-radius: 50%;
+    border: 2px solid var(--color-accent);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 500;
+    position: relative; /* Necesario para el pseudo-elemento de abajo */
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--text-primary); /* Cambia el color al estar activo o en hover */
+}
+
+/* Línea animada debajo del enlace de navegación */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--color-accent);
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+    width: 100%;
+    left: 0;
+}
+
+#hireBtn {
+    background-color: var(--color-accent);
+    color: #ffffff; /* El color del texto del botón es fijo */
+    font-size: 14px;
+    font-weight: 600;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 30px; /* Bordes más redondeados */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#hireBtn:hover {
+    background-color: var(--accent-hover);
+    transform: scale(1.05); /* Efecto de crecimiento */
+}
+
+/* --- CONTENIDO PRINCIPAL Y SECCIONES --- */
+main {
+    padding-top: 40px;
+}
+
+.page-section {
+    display: none; /* Todas las secciones están ocultas por defecto */
+    animation: fadeIn 0.6s ease-in-out; /* Animación de aparición */
+}
+
+.page-section.active {
+    display: flex; /* La sección activa se muestra como flexbox */
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px; /* Espacio entre los elementos de la sección */
+}
+
+/* --- SECCIÓN HOME --- */
+.intro {
+    max-width: 60%;
+}
+
+.main-title {
+    font-size: 2.5rem; /* Tamaño de fuente relativo (rem) para accesibilidad */
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+/* El span del título (nombre) se colorea con el color de acento */
+#typed-title {
+    color: var(--color-accent);
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    min-height: 2.2rem; /* Altura mínima para evitar saltos de layout mientras escribe Typed.js */
+    margin-top: 10px;
+}
+
+.description-text {
+    font-size: 1rem;
+    line-height: 1.6; /* Espaciado entre líneas para mejor legibilidad */
+    margin: 20px 0;
+    color: var(--text-secondary);
+}
+
+.quote-text {
+    font-style: italic;
+    color: var(--text-secondary);
+    border-left: 3px solid var(--color-accent);
+    padding-left: 15px;
+    margin: 20px 0;
+}
+
+.btn-download {
+    display: inline-block;
+    background-color: var(--color-accent);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: 600;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+.btn-download:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px var(--shadow-color);
+}
+
+.social-links {
+    margin-top: 30px;
+}
+
+.social-links p {
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-icons img {
+    width: 32px;
+    transition: transform 0.3s ease;
+}
+
+.social-icons img:hover {
+    transform: scale(1.2); /* Efecto de zoom al pasar el mouse */
+}
+
+.photo {
+    flex-shrink: 0; /* Evita que la imagen se encoja */
+}
+
+.profile-image {
+    width: 300px;
+    height: 300px;
+    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+    border-radius: 50%; /* Imagen de perfil redonda */
+    border: 5px solid var(--container-bg);
+    box-shadow: 0 0 0 5px var(--color-accent); /* Anillo de color de acento */
+}
+
+/* --- SECCIÓN PORTFOLIO Y SOBRE MÍ (Estilos comunes) --- */
+#portfolio, #about_me {
+    flex-direction: column; /* Organiza el contenido en una columna */
+    align-items: center; /* Centra los elementos */
+    gap: 20px;
+}
+
+#portfolio h1, #about_me h1 {
+    font-size: 2.2rem;
+    color: var(--text-primary);
+    border-bottom: 3px solid var(--color-accent);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+#portfolio h2, #about_me h2 {
+    font-size: 2rem;
+    color: var(--text-secondary);
+    margin: 30px 0 15px;
+}
+
+/* --- PORTFOLIO: TARJETAS DE HABILIDADES --- */
+.skill-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Grid responsive */
+    gap: 20px;
+    width: 100%;
+}
+
+.skill-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px var(--shadow-color);
+    background-color: var(--color-accent);
+}
+
+.skill-card img {
+    height: 50px;
+    width: 50px;
+}
+
+.skill-card h2 {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+.skill-card:hover h2 {
+    color: #ffffff; /* Texto blanco en hover */
+}
+
+/* --- PORTFOLIO: TARJETAS DE PROYECTOS --- */
+.portfolio-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grid responsive */
+    gap: 25px;
+    width: 100%;
+}
+
+.portfolio-card {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden; /* Oculta lo que se salga del borde redondeado */
+    box-shadow: 0 5px 15px var(--shadow-color);
+    transition: transform 0.3s ease;
+}
+
+.portfolio-card:hover {
+    transform: scale(1.03); /* Efecto de crecimiento */
+}
+
+.portfolio-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.portfolio-card .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); /* Gradiente para legibilidad del texto */
+    padding: 20px;
+    transform: translateY(100%); /* Empieza oculto abajo */
+    transition: transform 0.4s ease-in-out;
+}
+
+.portfolio-card:hover .overlay {
+    transform: translateY(0); /* Se muestra en hover */
+}
+
+.overlay h3 {
+    color: #ffffff;
+    font-size: 1.5rem;
+}
+
+.overlay p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin: 10px 0;
+}
+
+.overlay button {
+    background: var(--color-accent);
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.overlay button:hover {
+    background: var(--accent-hover);
+}
+
+.btn-github {
+    /* Mismos estilos que .btn-download para consistencia */
+    display: inline-block;
+    background-color: var(--text-primary);
+    color: var(--bg-color);
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: 600;
+    margin-top: 30px;
+    transition: all 0.3s ease;
+}
+
+.btn-github:hover {
+    background-color: var(--text-secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px var(--shadow-color);
+}
+
+/* --- SECCIÓN SOBRE MÍ --- */
+.resume-container {
+    display: flex;
+    gap: 40px;
+    width: 100%;
+    text-align: left; /* Alinea el texto a la izquierda dentro de las secciones */
+}
+
+.resume-section {
+    flex: 1; /* Ocupa el espacio disponible equitativamente */
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
+}
+
+.resume-item {
+    margin-bottom: 20px;
+}
+
+.resume-item h3 {
+    color: var(--color-accent);
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.resume-item p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+/* --- ANIMACIONES --- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- DISEÑO RESPONSIVE (MEDIA QUERIES) --- */
+/* Para tablets y dispositivos más pequeños */
+@media (max-width: 992px) {
+    .container {
+        max-width: 90%; /* Ocupa más ancho de la pantalla */
+    }
+    .page-section.active {
+        flex-direction: column; /* Apila los elementos verticalmente */
+    }
+    .intro {
+        max-width: 100%;
+        text-align: center;
+    }
+    .social-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .photo {
+        margin-top: 20px;
+    }
+    .profile-image {
+        width: 250px;
+        height: 250px;
+    }
+    .resume-container {
+        flex-direction: column;
+    }
+}
+
+/* Para teléfonos móviles */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .nav-links {
+        flex-wrap: wrap; /* Permite que los enlaces pasen a la siguiente línea */
+        justify-content: center;
+        gap: 20px;
+    }
+    .portfolio-cards {
+        grid-template-columns: 1fr; /* Una columna para los proyectos */
+    }
+}

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title data-key="pageTitle">Portafolio - AlejoMB.Dev</title>
+    <link rel="icon" href="img/funko.png" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <div class="controls-container">
+        <button id="themeToggleBtn" class="control-button" aria-label="Cambiar tema">
+            <span id="themeIcon">🌙</span>
+        </button>
+        <button id="languageToggleBtn" class="control-button" aria-label="Cambiar idioma">
+            <span id="langIcon">EN</span>
+        </button>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="profile-pic">
+                <img src="img/funko.png" alt="Profile Logo" />
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#" data-section="home" class="nav-link active" data-key="navHome">Inicio</a></li>
+                    <li><a href="#" data-section="portfolio" class="nav-link" data-key="navPortfolio">Portafolio</a></li>
+                    <li><a href="#" data-section="about_me" class="nav-link" data-key="navAboutMe">Sobre Mí</a></li>
+                    <li><button id="hireBtn" data-key="navContact">¡Contáctame!</button></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section id="home" class="page-section active">
+                <div class="intro">
+                    <h1 class="main-title">
+                        <span data-key="homeGreeting">Hola, soy </span><span id="typed-title"></span>
+                    </h1>
+                    <h2 class="subtitle" id="typed-subtitle"></h2>
+                    <p class="description-text" data-key="homeDescription">
+                        Me especializo en desarrollar interfaces web atractivas y funcionales...
+                    </p>
+                    <p class="quote-text" data-key="homeQuote">
+                        "Mi objetivo es que disfrutes cada interacción en un entorno digital diseñado para ti."
+                    </p>
+                    <a href="CV - John Medina .pdf" download class="btn-download" data-key="homeDownloadCV">¡Descargar CV!</a>
+                    <div class="social-links">
+                        <p data-key="homeFollowMe">Sígueme en...</p>
+                        <div class="social-icons">
+                            <a href="https://www.linkedin.com/in/alejombdev" target="_blank" rel="noopener noreferrer"><img src="icons/linkedin.png" alt="LinkedIn"></a>
+                            <a href="https://github.com/AlejoMBDev" target="_blank" rel="noopener noreferrer"><img src="icons/github.png" alt="GitHub"/></a>
+                            <a href="https://x.com/AlejoMBDev1498" target="_blank" rel="noopener noreferrer"><img src="icons/x.png" alt="X"/></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="photo">
+                    <img src="img/foto.jpg" alt="Foto de AlejoMB" class="profile-image"/>
+                </div>
+            </section>
+
+            <section id="portfolio" class="page-section">
+                <h1 data-key="portfolioTitle">Mi Trabajo</h1>
+                <h2 data-key="portfolioTechTitle">Tecnologías Usadas</h2>
+                <div class="skill-cards">
+                    <div class="skill-card">
+                        <img src="icons/html.svg" alt="HTML Icon">
+                        <h2>Html</h2>
+                    </div>
+                    <div class="skill-card">
+                        <img src="icons/css.svg" alt="CSS Icon">
+                        <h2>Css</h2>
+                    </div>
+                    <div class="skill-card">
+                        <img src="icons/js.svg" alt="JavaScript Icon">
+                        <h2>JS</h2>
+                    </div>
+                    <div class="skill-card">
+                        <img src="icons/react.svg" alt="React Icon">
+                        <h2>React</h2>
+                    </div>
+                    <div class="skill-card">
+                        <img src="icons/python.svg" alt="Python Icon">
+                        <h2>Python</h2>
+                    </div>
+                    <div class="skill-card">
+                        <img src="icons/nodejs.svg" alt="Git Icon">
+                        <h2>Node.JS</h2>
+                    </div>
+                </div>
+                <h2 data-key="portfolioProjectsTitle">Proyectos Destacados</h2>
+                <div class="portfolio-cards">
+                    <div class="portfolio-card">
+                        <img src="img/proxi.jpg" alt="Project 1 Cover">
+                        <div class="overlay">
+                            <h3>Clon de Interfaz de Mercado Libre</h3>
+                            <p data-key="projectDescription1">Una aplicación web de una sola página (SPA) que replica visualmente la página de inicio de Mercado Libre.</p>
+                            <button data-key="projectButton">Conoce Más</button>
+                        </div>
+                    </div>
+                    <div class="portfolio-card">
+                        <img src="img/commingson.jpg" alt="Project 2 Cover">
+                        <div class="overlay">
+                            <h3>Proximamente !!!</h3>
+                            <p data-key="projectDescription2"> .... </p>
+                            <button data-key="projectButton">Conoce Más</button>
+                        </div>
+                    </div>
+                    <div class="portfolio-card">
+                        <img src="img/scraping-web.png" alt="Project 3 Cover">
+                        <div class="overlay">
+                            <h3>Amazon Scrapper</h3>
+                            <p data-key="projectDescription3">Un scrapper web para extraer datos de productos de Amazon y visualizar los datos.</p>
+                            <button data-key="projectButton">Conoce Más ... </button>
+                        </div>
+                    </div>
+                </div>
+                <a href="https://github.com/AlejoMBDev?tab=repositories" target="_blank" rel="noopener" class="btn-github" data-key="portfolioMoreProjects">¡Mas Proyectos!</a>
+            </section>
+
+            <section id="about_me" class="page-section">
+                <h1 data-key="aboutTitle">Sobre Mí</h1>
+                <div class="resume-container">
+                    <div class="resume-section">
+                        <h2 data-key="aboutExperienceTitle">Experiencia Freelance</h2>
+                        <div class="resume-item">
+                            <h3 data-key="aboutExperienceDate">2022 – Actualidad</h3>
+                            <p data-key="aboutExperienceDesc">
+                                - Desarrollo de sitios y aplicaciones web a medida...<br>
+                                - Creación de sistemas de compra en línea y plataformas interactivas...<br>
+                                - Implementación de bases de datos SQL (MySQL)...<br>
+                                - Comunicación directa con clientes para la toma de requerimientos...<br>
+                                - Mantenimiento, optimización e instalación de equipos de cómputo.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="resume-section">
+                        <h2 data-key="aboutEducationTitle">Formación Académica</h2>
+                        <div class="resume-item">
+                            <h3 data-key="aboutEducationDegree">Ingeniería de Sistemas</h3>
+                            <p data-key="aboutEducationUniversity">Corporación Universitaria Remington.<br><i>Año de Graduación: 2021</i></p>
+                        </div>
+                        <div class="resume-item">
+                            <h3 data-key="aboutEducationFrontend">Desarrollo Frontend</h3>
+                            <p data-key="aboutEducationLearning">Desarrollador frontend autodidacta con experiencia en HTML, CSS, JavaScript, React, Next.js, Tailwind CSS, Git, consumo de APIs REST, y manejo básico de Figma. He desarrollado habilidades a través de proyectos personales, documentación oficial y plataformas especializadas, con enfoque en buenas prácticas, desarrollo modular y diseño responsivo.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="script.js"></script>
+</body>
+</html>

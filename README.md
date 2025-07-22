@@ -2,7 +2,7 @@
 
 ¡Bienvenido al repositorio de mi portafolio personal! Este proyecto fue creado desde cero para mostrar mis habilidades como Desarrollador Frontend, mis proyectos más destacados y un poco sobre mí.
 
-### ✨ ([https://tu-enlace-al-deploy.com](https://alejombdev.github.io/Portfolio/)) ✨
+### ✨ (https://alejombdev.github.io/Portfolio/)) ✨
 
 ---
 

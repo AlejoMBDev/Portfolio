@@ -366,7 +366,7 @@ main {
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); /* Gradiente para legibilidad del texto */
+    background: linear-gradient(to top, rgba(0,1.5,1.5,1.5), transparent); /* Gradiente para legibilidad del texto */
     padding: 20px;
     transform: translateY(100%); /* Empieza oculto abajo */
     transition: transform 0.4s ease-in-out;
@@ -374,6 +374,7 @@ main {
 
 .portfolio-card:hover .overlay {
     transform: translateY(0); /* Se muestra en hover */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent); /* Más oscuro para mejor contraste */ 
 }
 
 .overlay h3 {
@@ -382,27 +383,12 @@ main {
 }
 
 .overlay p {
-    color: var(--text-secondary);
+    color: #ffffff;
     font-size: 0.9rem;
     margin: 10px 0;
 }
 
-.overlay button {
-    background: var(--color-accent);
-    color: #fff;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.overlay button:hover {
-    background: var(--accent-hover);
-}
-
 .btn-github {
-    /* Mismos estilos que .btn-download para consistencia */
     display: inline-block;
     background-color: var(--text-primary);
     color: var(--bg-color);
@@ -418,6 +404,32 @@ main {
     background-color: var(--text-secondary);
     transform: translateY(-2px);
     box-shadow: 0 4px 10px var(--shadow-color);
+}
+
+.portfolio-links{
+    display: flex; /* Alinea los botones uno al lado del otro */
+    flex-wrap: wrap; /* Permite que los botones pasen a la siguiente línea si no hay espacio */
+    gap: 15px; /* Espacio entre los botones */
+    margin-top: 20px; /* Espacio por encima de los botones */
+    justify-content: flex-start; /* Alinea los botones al inicio de la tarjeta */
+}
+
+.portfolio-link-btn {
+    display: inline-flex; /* Permite alinear el icono y el texto correctamente */
+    align-items: center; /* Centra verticalmente el icono y el texto */
+    gap: 8px; /* Espacio entre el icono y el texto */
+    padding: 10px 20px;
+    border-radius: 50px; /* Bordes redondeados para un look de "píldora" */
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    border: 2px solid transparent; /* Borde inicial transparente */
+}
+
+.portfolio-links span, svg {
+    display: inline-block; /* Permite que el texto se alinee correctamente */
+    color: #ffffff; /* Color del texto de los enlaces */
 }
 
 /* --- SECCIÓN SOBRE MÍ --- */

@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
             portfolioProjectsTitle: "Proyectos Destacados",
             projectDescription1: "Jedasmic Systems, una agencia de desarrollo frontend que vive a la vanguardia del diseño y el código.",
             projectDescription2: "Un clon simplificado de Trello desarrollado con React.",
-            projectDescription3: "Un bot para extraer y analizar tendencias y datos de perfiles de Twitter/X.",
+            projectDescription3: "Sitio Web de articulos, recursos y temas cristianos.",
             projectButton: "Conoce Más...",
             portfolioMoreProjects: "¡Más Proyectos!",
             aboutTitle: "Sobre Mí",
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
             portfolioProjectsTitle: "Featured Projects",
             projectDescription1: "Jedasmic Systems, a frontend development agency that lives at the forefront of design and code.",
             projectDescription2: "A simplified Trello clone developed with React.",
-            projectDescription3: "A bot to extract and analyze trends and profile data from Twitter/X.",
+            projectDescription3: "Blog Sola Scriptura, a website for articles, resources, and Christian topics.",
             projectButton: "Learn More",
             portfolioMoreProjects: "More Projects!",
             aboutTitle: "About Me",
@@ -197,7 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Obtiene el idioma guardado, o usa 'es' como predeterminado si no hay ninguno.
     const currentLang = localStorage.getItem('language') || 'es';
     // Obtiene el tema guardado, o usa 'light' como predeterminado.
-    const currentTheme = localStorage.getItem('theme') || 'light';
+    const currentTheme = localStorage.getItem('theme') || 'dark';
     
     // Establece el idioma y el tema iniciales al cargar la página.
     setLanguage(currentLang);

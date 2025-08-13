@@ -334,6 +334,121 @@ main {
     color: #ffffff; /* Texto blanco en hover */
 }
 
+/*=============== ESTILOS SECCIÓN MI EMPRESA ===============*/
+.company-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.company-item {
+    display: block;
+    max-width: 400px; /* Ajusta el ancho máximo de la imagen de tu empresa */
+    width: 70%;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.company-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.company-image {
+    width: 100%;
+    display: block; /* Elimina espacios extra bajo la imagen */
+}
+
+/*=============== ESTILOS SLIDER DE TECNOLOGÍAS ===============*/
+.tech-slider {
+    /* El fondo cambiará con el tema, usando las variables que ya tienes */
+    background: var(--card-bg-dark); 
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
+    height: 120px; /* Altura del carrusel */
+    margin: auto;
+    overflow: hidden; /* Oculta los iconos que se salen */
+    position: relative;
+    width: 100%;
+    border-radius: 10px;
+}
+body.light-mode .tech-slider {
+    background: var(--card-bg-light);
+}
+
+/* Efecto de desvanecimiento en los bordes */
+.tech-slider::before,
+.tech-slider::after {
+    content: "";
+    height: 100%;
+    position: absolute;
+    width: 15%; /* Ancho del desvanecimiento */
+    z-index: 2;
+}
+/* Desvanecimiento en modo oscuro */
+body.dark-mode .tech-slider::before {
+    left: 0;
+    top: 0;
+    background: linear-gradient(to right, var(--bg-dark) 0%, rgba(18, 18, 18, 0) 100%);
+}
+body.dark-mode .tech-slider::after {
+    right: 0;
+    top: 0;
+    background: linear-gradient(to left, var(--bg-dark) 0%, rgba(18, 18, 18, 0) 100%);
+}
+/* Desvanecimiento en modo claro */
+body.light-mode .tech-slider::before {
+    left: 0;
+    top: 0;
+    background: linear-gradient(to right, var(--bg-light) 0%, rgba(248, 249, 250, 0) 100%);
+}
+body.light-mode .tech-slider::after {
+    right: 0;
+    top: 0;
+    background: linear-gradient(to left, var(--bg-light) 0%, rgba(248, 249, 250, 0) 100%);
+}
+
+
+.slide-track {
+    /* La animación que mueve el carrusel */
+    animation: scroll 40s linear infinite;
+    display: flex;
+    /* Ancho total: (ancho de cada slide) x (número total de slides) */
+    /* 150px * 16 = 2400px */
+    width: calc(150px * 16);
+}
+
+.slide {
+    height: 120px;
+    width: 150px;  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+
+.slide img {
+    height: 80px; /* Tamaño del icono */
+    width: auto;
+    transition: filter 0.3s ease;
+}
+
+.slide:hover img {
+    transform: scale(1.1); /* Un ligero zoom al pasar el mouse */
+}
+
+/* Definición de la animación de scroll */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* Mueve el track la distancia del primer conjunto de iconos (8) */
+        transform: translateX(calc(-150px * 8));
+    }
+}
+
 /* --- PORTFOLIO: TARJETAS DE PROYECTOS --- */
 .portfolio-cards {
     display: grid;
@@ -379,13 +494,15 @@ main {
 
 .overlay h3 {
     color: #ffffff;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    text-align: center;
 }
 
 .overlay p {
     color: #ffffff;
-    font-size: 0.9rem;
+    font-size:  1.1rem;
     margin: 10px 0;
+    text-align: center;
 }
 
 .btn-github {
@@ -411,7 +528,7 @@ main {
     flex-wrap: wrap; /* Permite que los botones pasen a la siguiente línea si no hay espacio */
     gap: 15px; /* Espacio entre los botones */
     margin-top: 20px; /* Espacio por encima de los botones */
-    justify-content: flex-start; /* Alinea los botones al inicio de la tarjeta */
+    justify-content: center; /* Centra los botones horizontalmente */
 }
 
 .portfolio-link-btn {
